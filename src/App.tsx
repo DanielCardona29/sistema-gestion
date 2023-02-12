@@ -1,13 +1,12 @@
-import Login from './componentes/organims/Login';
+import Home from './componentes/pages/home/home';
+import { AuthProvider } from './contexts/auth';
 import './styles/app.scss';
 
 function App() {
   return (
-    <div className="App">
-      <h1>SISTEMA DE GESTION DE EQUIPOS DE COMPUTO</h1>
-      <Login />
-
-    </div>
+    <AuthProvider>
+      <Home />
+    </AuthProvider>
   );
 }
 

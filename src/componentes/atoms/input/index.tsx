@@ -10,14 +10,15 @@ interface TypeProps {
     placeholder?: string;
     styles?: CSSProperties;
     onChange?: (e: any) => any,
-    otherProps?: object
+    otherProps?: object,
+    autocomplete?: 'current-password' | 'username'
 }
 
 //Imprime los iconos
 const Input: React.FC<TypeProps> = (props) => {
-    const { type, styles, placeholder, onChange, otherProps, value, id } = props;
+    const { type, styles, placeholder, onChange, otherProps, value, id, autocomplete } = props;
 
-    return (<input type={type} style={styles} className={'input'} placeholder={placeholder} onChange={onChange} value={value} id={id} {...otherProps} />);
+    return (<input type={type} style={styles} className={'input'} placeholder={placeholder} onChange={onChange} value={value} id={id} autoComplete={autocomplete} {...otherProps} />);
 }
 
 

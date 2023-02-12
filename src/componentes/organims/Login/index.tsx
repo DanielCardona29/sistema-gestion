@@ -32,16 +32,16 @@ const Login: React.FC<TypeProps> = () => {
 
 
     return (
-        <div className="login-wrapper">
+        <form className="login-wrapper">
             <Icon image={'usuario'} />
             <div className="inputs-wrapper">
-                <Input type={'text'} placeholder={'Usuario'} id={'user'} onChange={onChange} value={state.user} />
-                <Input type={'password'} placeholder={'Contrasesña'} id={'password'} onChange={onChange} value={state.password} />
+                <Input type={'text'} placeholder={'Usuario'} id={'user'} onChange={onChange} value={state.user} autocomplete={'username'} />
+                <Input type={'password'} placeholder={'Contrasesña'} id={'password'} onChange={onChange} value={state.password} autocomplete={'current-password'} />
             </div>
             <div className="button-wrapper">
                 <Button>Iniciar  Session</Button>
             </div>
-        </div>
+        </form>
     )
 }
 
