@@ -1,0 +1,27 @@
+.button {
+    padding: 15px 30px;
+    border-radius: 8px;
+    border: 0px;
+    font-size: 12px;
+    font-weight: bold;
+    transition: .3s;
+    cursor: pointer;
+
+    &:disabled {
+        opacity: 0.8;
+    }
+
+    &:active {
+        transform: scale(0.95);
+    }
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+}
+
+.button.default {
+    background: #005DCA;
+    color: #FFFFFF;
+}

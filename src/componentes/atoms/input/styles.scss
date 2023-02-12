@@ -9,5 +9,13 @@
     line-height: 22px;
     font-weight: 400;
     border: 0;
-    
+    transition: .3s;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    &:focus {
+        transform: scale(1.05);
+    }
 }
