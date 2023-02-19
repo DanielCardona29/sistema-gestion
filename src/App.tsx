@@ -14,9 +14,16 @@ export const pathList = {
 
 function App() {
   return (
-    <AuthProvider>
-      <Home />
-    </AuthProvider>
+    <div className="App">
+      <BrowserRouter>
+        <Routes>
+          {/* Ruta inicial */}
+          <Route path={pathList.Login} element={<LoginPage />} />
+          {/* Ruta de creacion de areas */}
+          <Route path={pathList.areaCreate} element={<AreasCreate />} />
+        </Routes>
+      </BrowserRouter>
+    </div>
   );
 }
 
