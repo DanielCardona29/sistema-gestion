@@ -1,4 +1,6 @@
 import LoginPage from './componentes/pages/Login';
+import Home from './componentes/pages/home/home';
+import { AuthProvider } from './contexts/auth';
 import './styles/app.scss';
 
 import { BrowserRouter, Routes, Route } from "react-router-dom";
@@ -12,16 +14,9 @@ export const pathList = {
 
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          {/* Ruta inicial */}
-          <Route path={pathList.Login} element={<LoginPage />} />
-          {/* Ruta de creacion de areas */}
-          <Route path={pathList.areaCreate} element={<AreasCreate />} />
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <AuthProvider>
+      <Home />
+    </AuthProvider>
   );
 }
 
