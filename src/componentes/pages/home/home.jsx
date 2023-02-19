@@ -4,7 +4,7 @@ import Login from '../../organims/Login';
 import './styles.scss'
 const Home = () => {
     return (
-        <div className="App">
+        <div className="home">
         <h1>SISTEMA DE GESTION DE EQUIPOS DE COMPUTO</h1>
         <Login />
 
