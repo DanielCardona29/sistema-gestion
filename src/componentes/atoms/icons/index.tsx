@@ -2,11 +2,12 @@ import React from 'react';
 
 import images from '../../../images/index';
 
+export type imageProps = 'usuario' | 'banderaCaqueta'
 
-interface TypeProps{
+export interface TypeProps{
     width?: string | number | undefined,
     height?: string | number | undefined,
-    image: 'usuario' | 'banderaCaqueta'
+    image: imageProps,
 }
 
 //Imprime los iconos
