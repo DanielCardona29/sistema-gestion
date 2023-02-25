@@ -30,7 +30,7 @@ const RoutesWrapper = ({ children }: any) => {
   return (
     <BrowserRouter>
       <Routes>
-        {RoutesList.map((route) => <Route element={<route.component />} path={route.path} id={route.id} />)}
+        {RoutesList.map((route, index) => <Route element={<route.component />} path={route.path} id={route.id} key={index} />)}
       </Routes>
     </BrowserRouter>
   )
