@@ -1,0 +1,27 @@
+.table-wrapper {
+    height: 683px;
+    margin-left: 40px;
+
+    .table {
+        background: #D7EAF5;
+        justify-content: center;
+        .table-row {
+          height: 20px;
+          border-radius: 8px;
+          min-height: 30px !important;
+          align-items: center;
+          margin-top: 40px;
+          .table-cells{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+        }
+        .pair{
+            background: #CFD1D2;
+        }
+        .odd{
+            background: #F0FAFF;
+        }
+    }
+}

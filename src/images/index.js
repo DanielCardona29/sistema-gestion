@@ -1,5 +1,6 @@
 import usuario from './usuario.svg';
 import banderaCaqueta from './Flag_of_Caquetá.svg'
+import actions from './actions-icon.svg'
 
 import annadirIcon from './añadir-icon.png';
 import reportIcon from './report-icon.png';
@@ -13,6 +14,7 @@ const images = {
     reportIcon,
     selectIcon,
     timeIcon,
+    actions
 }
 
 export default images; 

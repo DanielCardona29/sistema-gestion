@@ -3,21 +3,22 @@ import React from 'react';
 import images from '../../../images/index';
 
 export type imageProps =
-    "usuario" | "banderaCaqueta" | "annadirIcon" | "reportIcon" | "selectIcon" | "timeIcon";
+    "usuario" | "banderaCaqueta" | "annadirIcon" | "reportIcon" | "selectIcon" | "timeIcon" | "actions";
 
 export interface TypeProps {
     width?: string | number | undefined,
     height?: string | number | undefined,
     image: imageProps,
+    onClick?: () => void,
 }
 
 //Imprime los iconos
 const Icon: React.FC<TypeProps> = (props) => {
     //las propiedades
-    const { width, height, image } = props;
+    const { width, height, image, onClick } = props;
 
 
-    return (<img src={images[image]} width={width} height={height} alt={image} />);
+    return (<img src={images[image]} width={width} height={height} alt={image} onClick={onClick} />);
 }
 
 

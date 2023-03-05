@@ -1,0 +1,15 @@
+.wrapper-actions {
+    position: fixed;
+    background: #FFF;
+    z-index: 1000;
+    padding: 10px 20px;
+    border-radius: 8px;
+    display: none;
+    cursor: pointer;
+    &.show{
+        display: flex;
+    }
+}
+.wrapper{
+    cursor: pointer;
+}
