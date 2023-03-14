@@ -1,50 +1,99 @@
-import React from "react";
-import { DataGrid, GridColDef } from '@mui/x-data-grid';
+import React, { useEffect, useState } from "react";
+import { DataGrid, GridColDef } from '@mui/x-data-grid'
 
 import './styles.scss';
 
+
 interface TypeProps {
-  width?: number;
   data?: any;
-  cols?: any;
+  cols: GridColDef[];
   pageSize?: number,
   rowsPerPageOptions?: number[],
 }
 
 
-const Table: React.FC<TypeProps> = ({ width, data, cols, pageSize, rowsPerPageOptions }) => {
+const Table: React.FC<TypeProps> = ({ data, cols, pageSize, rowsPerPageOptions }) => {
+  const [colWidth, setColWidth] = useState(0);
+
+  const [tableWidth, setTableWidth] = useState(600);
+
+  const colums = cols.map((col: GridColDef) => {
+    return {
+      ...col,
+      width: colWidth
+    }
+  });
+
+
+
+  useEffect(() => {
+    const clientWidth = document.querySelector('.table-wrapper')?.clientWidth || 0;
+    setTableWidth(clientWidth - 110);
+    setColWidth((clientWidth - 120) / cols?.length)
+
+  }, [data, cols]);
 
   return (
-    <div className="table-wrapper">
-      <DataGrid
-        style={{ width }}
-        rows={data}
-        columns={cols}
-        pageSize={pageSize}
-        rowsPerPageOptions={rowsPerPageOptions}
-        className="table"
-        autoPageSize
-        disableColumnFilter
-        disableColumnSelector
-        disableSelectionOnClick
-        disableColumnMenu
-        getRowClassName={(params) => {
-          const { indexRelativeToCurrentPage: index } = params;
-          return `table-row ${index % 2 === 0 ? 'pair' : 'odd'}`
-        }}
+    <div>
 
-        getCellClassName={(params) => {
-          return ('table-cells')
-        }}
-      />
+      <div className="table-wrapper">
+        <DataGrid
+          style={{ width: tableWidth }}
+          rows={data}
+          columns={colums}
+          pageSize={pageSize}
+          rowsPerPageOptions={rowsPerPageOptions}
+          className="table"
 
 
+          autoPageSize
+          disableColumnSelector
+          disableSelectionOnClick
+
+          pagination
+
+          localeText={{
+            columnMenuSortAsc: 'Ordenar ascendente',
+            columnMenuSortDesc: 'Ordenar Desendente',
+            columnMenuUnsort: 'Deshacer',
+            columnMenuFilter: 'Filtrar',
+            filterPanelColumns: 'Columna',
+            filterPanelOperators: 'Operador',
+            filterPanelOperatorAnd: 'y',
+            filterPanelOperatorOr: 'o',
+            filterOperatorEquals: 'igual',
+            filterOperatorContains: 'contiene',
+            filterOperatorStartsWith: 'empieza por',
+            filterOperatorEndsWith: 'finaliza por',
+            filterOperatorIsEmpty: 'esta vacio',
+            filterOperatorIsNotEmpty: 'no esta vacio',
+            filterOperatorIsAnyOf: 'hay alguno que',
+            filterOperatorIs: 'es',
+            filterOperatorNot: 'no es',
+            filterOperatorAfter: 'después',
+            filterOperatorOnOrAfter: 'no es después',
+            filterOperatorBefore: 'antes',
+            filterOperatorOnOrBefore: 'no es antes'
+          }}
+
+          getRowClassName={(params) => {
+            const { indexRelativeToCurrentPage: index } = params;
+            return `table-row ${index % 2 === 0 ? 'pair' : 'odd'}`
+          }}
+
+          getCellClassName={(params) => {
+            return ('table-cells')
+          }}
+        />
+
+
+      </div>
     </div>
+
   )
 }
 
 Table.defaultProps = {
-  width: 610,
   pageSize: 8,
   rowsPerPageOptions: [5],
   data: [],

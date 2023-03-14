@@ -19,3 +19,19 @@
         transform: scale(1.05);
     }
 }
+
+.date-wrapper{
+    width: 356px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    .date{
+        width: 0 !important;
+        padding: 0 !important;
+        margin: 0;
+    }
+    .date-over{
+        position: relative;
+        text-align: left;
+    }
+}
